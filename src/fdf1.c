@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/23 02:26:37 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:50:28 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int	main(int argc, char **argv)
 	mlx_do_key_autorepeaton(fdf->mlx);
 	mlx_key_hook(fdf->win, key_hook, fdf);
 	mlx_loop(fdf->mlx);
+	mlx_destroy_window(fdf->mlx, fdf->win);
 	mlx_destroy_display(fdf->mlx);
 	free(fdf->mlx);
 	return (0);

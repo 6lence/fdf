@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fdf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:58:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 13:43:59 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:23:21 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_image
 	int				width;
 	int				x;
 	int				y;
-	int				color;
+	unsigned int	color;
 	int				bpp;
 	int				line;
 	int				endian;
@@ -49,10 +49,10 @@ typedef struct s_image
 
 typedef struct s_point
 {
-	double	x;
-	double	y;
-	double	z;
-	int		color;
+	double			x;
+	double			y;
+	double			z;
+	unsigned int	color;
 }		t_point;
 
 typedef struct s_camera
@@ -109,7 +109,6 @@ void			ft_swap_more(int *a, int *a1, int *b, int *b1);
 void			ft_put_pixel(t_fdf *l, int y, int x);
 void			ft_horizontal(t_fdf *l, t_point pt1, t_point pt2);
 void			ft_vertical(t_fdf *l, t_point pt1, t_point pt2);
-int				ft_get_z(t_fdf *l, int y, int x);
 void			last_line(t_fdf *l);
 t_point			proj(t_fdf *l, int y, int x);
 void			bresenham(t_fdf *l, t_point pt1, t_point pt2);
@@ -117,5 +116,6 @@ int				key_hook(int key, t_fdf *l);
 void			ft_reset(t_fdf *l);
 void			ft_refresh(t_fdf *l);
 int				ft_abs(int a);
+double			deg_to_rad(int x);
 
 #endif

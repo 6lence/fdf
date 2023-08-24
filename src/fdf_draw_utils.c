@@ -3,21 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_draw_utils.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/18 20:03:18 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 10:16:21 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:52:16 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_fdf.h"
-
-int	ft_get_z(t_fdf *l, int y, int x)
-{
-	y = (y - l->tmph / 2) / l->tmph;
-	x = (x - l->tmpl / 2) / l->tmpl;
-	return (l->map[y][x]);
-}
 
 double	deg_to_rad(int x)
 {

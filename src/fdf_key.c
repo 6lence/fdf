@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:45:42 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 10:39:32 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 14:56:50 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,9 +84,9 @@ int	key_hook(int key, t_fdf *l)
 	if (key == XK_f || key == XK_F)
 		l->cam->angle2 += 5;
 	if (key == XK_t)
-		set_dim(l, 0, 45);
+		set_dim(l, 0, 0);
 	if (key == XK_y)
-		set_dim(l, 45, 25);
+		set_dim(l, 0, 90);
 	ft_move(key, l);
 	ft_refresh(l);
 	return (0);

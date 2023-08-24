@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_draw.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 11:46:44 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 13:44:39 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:41:52 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,6 @@ void	ft_endian(t_fdf *l)
 
 void	line(t_fdf *l, t_point pt1, t_point pt2)
 {
-
-	l->img->color = pt1.color;
 	pt1.x *= l->cam->zoom;
 	pt1.y *= l->cam->zoom;
 	pt2.x *= l->cam->zoom;
@@ -53,11 +51,12 @@ void	line(t_fdf *l, t_point pt1, t_point pt2)
 	l->m = ft_max(ft_abs(l->dx), ft_abs(l->dy));
 	l->dx /= l->m;
 	l->dy /= l->m;
-	while (((int)(pt1.x - pt2.x) || (int)(pt1.y - pt2.y))
-		&& pt1.x < l->win_width && pt1.x > 0 && pt1.y < l->win_height
-		&& pt1.y > 0)
+	l->img->color = pt1.color;
+	while (((int)(pt1.x - pt2.x) || (int)(pt1.y - pt2.y)))
 	{
-		ft_put_pixel(l, (int)pt1.y, (int)pt1.x);
+		if (pt1.x < l->win_width && pt1.x > 0 && pt1.y < l->win_height
+			&& pt1.y > 0)
+			ft_put_pixel(l, (int)pt1.y, (int)pt1.x);
 		pt1.x += l->dx;
 		pt1.y += l->dy;
 	}

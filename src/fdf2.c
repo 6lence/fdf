@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:25:30 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 13:44:18 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/24 15:52:17 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,8 @@ void	ft_init(t_fdf *l)
 	l->ctrl->y = 200;
 	l->cam->alt_z = 0.1;
 	l->cam->zoom = 2;
-	l->cam->angle = 20;
-	l->cam->angle2 = 35;
+	l->cam->angle = 45;
+	l->cam->angle2 = 45;
 	l->win_width = 720;
 	l->win_height = 440;
 	l->img->height = l->win_height;
