@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:25:30 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 18:34:36 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/25 01:26:39 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,16 +84,16 @@ char	***ft_split_triple(char const **s, char c)
 
 void	ft_init(t_fdf *l)
 {
-	l->win_width = 720;
-	l->win_height = 440;
+	l->win_width = 1820;
+	l->win_height = 1080;
 	l->tmph = l->img->height / l->h;
 	l->tmpl = l->img->width / l->l;
 	l->img->height = l->win_height;
 	l->img->width = l->win_width;
 	l->cam->alt_z = 0.1;
-	l->cam->zoom = 2;
-	l->cam->angle = 45;
-	l->cam->angle2 = 45;
-	l->ctrl->x = 275;
-	l->ctrl->y = 200;
+	l->cam->zoom = (l->win_height / ((l->h)));
+	l->cam->angle = 0;
+	l->cam->angle2 = 0;
+	l->ctrl->x = (l->win_width / 2 - ((l->l / 2) * l->cam->zoom));
+	l->ctrl->y = (l->win_height / 2 - ((l->h / 2) * l->cam->zoom));
 }

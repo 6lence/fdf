@@ -3,13 +3,14 @@ MAKEFLAGS += --silent
 SRC = ./src/
 
 FILES_C = $(SRC)fdf_draw.c \
-		  ${SRC}fdf_utils.c \
 		  ${SRC}fdf_draw_utils.c \
 		  ${SRC}fdf_key.c \
 		  ${SRC}fdf_key_utils.c \
+		  ${SRC}fdf_utils.c \
 		  ${SRC}fdf1.c \
 		  ${SRC}fdf2.c \
 		  ${SRC}fdf_atoi_base.c \
+		  ${SRC}fdf_menu.c \
 		  ${SRC}fdf_split_triple.c \
 
 LIBFT_PATH = ${SRC}ft_printf/

@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 17:22:53 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/25 00:25:54 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,17 +79,12 @@ int	main(int argc, char **argv)
 	fdf->img = ft_calloc(1, sizeof(t_image));
 	fdf->cam = ft_calloc(1, sizeof(t_camera));
 	fdf->ctrl = ft_calloc(1, sizeof(t_ctrl));
-	fdf->ayo = 1;
 	ft_char_int(argv[1], fdf);
 	ft_init(fdf);
 	fdf->mlx = mlx_init();
 	fdf->win = mlx_new_window(fdf->mlx, fdf->win_width, fdf->win_height, "FDF");
 	ft_put_image(fdf);
-	mlx_do_key_autorepeaton(fdf->mlx);
-	mlx_key_hook(fdf->win, key_hook, fdf);
+	mlx_hook(fdf->win, KeyPress, KeyPressMask, key_hook, fdf);
 	mlx_loop(fdf->mlx);
-	mlx_destroy_window(fdf->mlx, fdf->win);
-	mlx_destroy_display(fdf->mlx);
-	free(fdf->mlx);
 	return (0);
 }

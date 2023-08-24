@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/14 11:46:44 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 15:41:52 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/25 01:15:47 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,4 +86,5 @@ void	ft_put_image(t_fdf *l)
 	}
 	mlx_put_image_to_window(l->mlx, l->win, l->img->img_ptr,
 		0, 0);
+	draw_controls(l);
 }

@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:45:42 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 18:45:49 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/25 01:32:33 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,18 @@
 
 static void	ft_move(int key, t_fdf *l)
 {
-	float	a;
-	float	b;
-
-	b = l->win_height / 3 / 10;
-	a = l->win_width / 3 / 10;
 	if (key == XK_w)
-		l->ctrl->y -= b;
+		l->ctrl->y -= 10;
 	if (key == XK_s)
-		l->ctrl->y += b;
+		l->ctrl->y += 10;
 	if (key == XK_d)
-		l->ctrl->x += a;
+		l->ctrl->x += 10;
 	if (key == XK_a)
-		l->ctrl->x -= a;
+		l->ctrl->x -= 10;
 	if (key == XK_n)
-		l->cam->alt_z += 0.1;
+		l->cam->alt_z += 0.05;
 	if (key == XK_m)
-		l->cam->alt_z -= 0.1;
+		l->cam->alt_z -= 0.05;
 	if (key == XK_x)
 		ft_reset(l);
 }
@@ -43,22 +38,20 @@ static void	set_dim(t_fdf *l, int a, int b)
 
 static void	set_zoom(int key, t_fdf *l)
 {
-	double	a;
-	double	b;
+	float	a;
 
-	a = l->cam->zoom / l->y1;
-	b = l->cam->zoom / l->x1;
-	if (key == ZOOM)
+	a = 0.5;
+	if (key == ZOOM && l->cam->zoom < l->win_width)
 	{
-		l->cam->zoom += 0.5;
-		l->ctrl->x -= b;
-		l->ctrl->y -= a;
+		l->cam->zoom += a;
+		l->ctrl->x = (l->win_width / 2 - ((l->l / 2) * l->cam->zoom));
+		l->ctrl->y = (l->win_height / 2 - ((l->h / 2) * l->cam->zoom));
 	}
-	if (key == DEZOOM && l->cam->zoom > 0)
+	if (key == DEZOOM && l->cam->zoom > 1)
 	{
-		l->cam->zoom -= 0.5;
-		l->ctrl->x += b;
-		l->ctrl->y += a;
+		l->cam->zoom -= a;
+		l->ctrl->x = (l->win_width / 2 - ((l->l / 2) * l->cam->zoom));
+		l->ctrl->y = (l->win_height / 2 - ((l->h / 2) * l->cam->zoom));
 	}
 }
 
