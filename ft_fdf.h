@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:58:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 15:23:21 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/24 17:11:14 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,5 +117,6 @@ void			ft_reset(t_fdf *l);
 void			ft_refresh(t_fdf *l);
 int				ft_abs(int a);
 double			deg_to_rad(int x);
+void			ft_free_all(t_fdf *l);
 
 #endif

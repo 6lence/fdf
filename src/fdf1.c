@@ -6,7 +6,7 @@
 /*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 15:50:28 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/24 17:22:53 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ static char	**ft_get_open(char *map, t_fdf *fdf)
 		buffer[r] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
-	free(buffer);
 	antaunio = ft_split(line, '\n');
+	free(buffer);
 	free(line);
 	close(fdf->file);
 	return (antaunio);
