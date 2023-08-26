@@ -3,14 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_key_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 00:01:26 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 17:53:05 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/26 09:22:18 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_fdf.h"
+
+int	close_prog(t_fdf *l)
+{
+	ft_free_all(l);
+	exit(EXIT_SUCCESS);
+	return (0);
+}
 
 void	ft_refresh(t_fdf *l)
 {

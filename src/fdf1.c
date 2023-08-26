@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/25 00:25:54 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/26 10:34:24 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static char	**ft_get_open(char *map, t_fdf *fdf)
 
 	fdf->file = open(map, O_RDONLY);
 	if (fdf->file < 0 || read(fdf->file, 0, 0))
-		ft_exit("Opening file error: ");
-	line = ft_calloc(sizeof(char), 1);
-	buffer = malloc(1024);
-	if (!buffer)
-		ft_exit("Buffer malloc error: ");
+		ft_exit("Opening file error ");
+	line = ft_calloc(1, sizeof(char));
+	buffer = ft_calloc(1, 1024);
+	if (!buffer || !line)
+		ft_exit("Malloc error ");
 	r = 1;
 	while (r != 0)
 	{
-		r = read(fdf->file, buffer, 1024);
+		r = read(fdf->file, buffer, 1023);
 		buffer[r] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
@@ -55,6 +55,7 @@ static void	ft_char_int(char *str, t_fdf *l)
 	int		j;
 
 	new = ft_get_open(str, l);
+
 	tmp = ft_split_triple((char const **)new, ' ');
 	ft_db_malloc(tmp, l);
 	ft_tmp_map(tmp, l);
@@ -67,6 +68,12 @@ static void	ft_char_int(char *str, t_fdf *l)
 		free(tmp[i]);
 		i++;
 	}
+	free(tmp);
+	i = 0;
+	while (i < l->h)
+		free(new[i++]);
+	free(new);
+	exit(EXIT_SUCCESS);
 }
 
 int	main(int argc, char **argv)
@@ -85,6 +92,7 @@ int	main(int argc, char **argv)
 	fdf->win = mlx_new_window(fdf->mlx, fdf->win_width, fdf->win_height, "FDF");
 	ft_put_image(fdf);
 	mlx_hook(fdf->win, KeyPress, KeyPressMask, key_hook, fdf);
+	mlx_hook(fdf->win, 17, 0L, close_prog, fdf);
 	mlx_loop(fdf->mlx);
 	return (0);
 }

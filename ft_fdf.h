@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fdf.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 14:58:08 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/24 23:31:02 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/26 10:11:41 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,7 @@ typedef struct s_fdf
 	t_ctrl			*ctrl;
 }					t_fdf;
 
+int				close_prog(t_fdf *l);
 void			ft_init(t_fdf *l);
 void			ft_init1(t_fdf *n);
 void			ft_exit(char *str);

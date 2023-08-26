@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_key.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/09 17:45:42 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/25 01:32:33 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/26 09:24:38 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,31 +40,34 @@ static void	set_zoom(int key, t_fdf *l)
 {
 	float	a;
 
-	a = 0.5;
-	if (key == ZOOM && l->cam->zoom < l->win_width)
+	a = 1.0;
+	if (key == ZOOM)
 	{
 		l->cam->zoom += a;
-		l->ctrl->x = (l->win_width / 2 - ((l->l / 2) * l->cam->zoom));
-		l->ctrl->y = (l->win_height / 2 - ((l->h / 2) * l->cam->zoom));
+		l->ctrl->x -= a * (l->l / 2);
+		l->ctrl->y -= a * (l->h / 2);
 	}
 	if (key == DEZOOM && l->cam->zoom > 1)
 	{
 		l->cam->zoom -= a;
-		l->ctrl->x = (l->win_width / 2 - ((l->l / 2) * l->cam->zoom));
-		l->ctrl->y = (l->win_height / 2 - ((l->h / 2) * l->cam->zoom));
+		l->ctrl->x += a * (l->l / 2);
+		l->ctrl->y += a * (l->h / 2);
 	}
 }
 
 static void	set_all_angles(int key, t_fdf *l)
 {
+	int	a;
+
+	a = 5;
 	if (key == XK_q || key == XK_Q)
-		l->cam->angle -= 5;
+		l->cam->angle -= a;
 	if (key == XK_e || key == XK_E)
-		l->cam->angle += 5;
+		l->cam->angle += a;
 	if (key == XK_r || key == XK_R)
-		l->cam->angle2 -= 5;
+		l->cam->angle2 -= a;
 	if (key == XK_f || key == XK_F)
-		l->cam->angle2 += 5;
+		l->cam->angle2 += a;
 }
 
 int	key_hook(int key, t_fdf *l)

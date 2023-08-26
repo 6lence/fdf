@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:14:12 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/23 03:25:17 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/25 11:10:00 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,3 @@ int	ft_get_color(t_fdf *l, int y, int x)
 		color = mlx_get_color_value(l->mlx, l->color[y][x]);
 	return (color);
 }
-
