@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/01 11:25:30 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/25 11:55:57 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:32:37 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,8 @@ char	***ft_split_triple(char const **s, char c)
 	tab = ft_calloc(sizeof(char **), ft_eny(s) + 1);
 	while (s[l])
 		l = ft_split_new(l, tab, s, c);
+	if (l == 0)
+		return (NULL);
 	return (tab);
 }
 

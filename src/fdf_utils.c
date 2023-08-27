@@ -6,14 +6,15 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:14:12 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/25 11:10:00 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:30:27 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_fdf.h"
 
-void	ft_exit(char *str)
+void	ft_exit(char *str, t_fdf *l)
 {
+	ft_free_all(l);
 	perror(str);
 	exit(EXIT_FAILURE);
 }

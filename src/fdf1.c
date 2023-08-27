@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/26 10:34:24 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:58:54 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,15 +28,15 @@ static char	**ft_get_open(char *map, t_fdf *fdf)
 
 	fdf->file = open(map, O_RDONLY);
 	if (fdf->file < 0 || read(fdf->file, 0, 0))
-		ft_exit("Opening file error ");
+		ft_exit("Opening file error ", fdf);
 	line = ft_calloc(1, sizeof(char));
 	buffer = ft_calloc(1, 1024);
 	if (!buffer || !line)
-		ft_exit("Malloc error ");
+		ft_exit("Malloc error ", fdf);
 	r = 1;
 	while (r != 0)
 	{
-		r = read(fdf->file, buffer, 1023);
+		r = read(fdf->file, buffer, 1024);
 		buffer[r] = '\0';
 		line = ft_strjoin(line, buffer);
 	}
@@ -55,8 +55,9 @@ static void	ft_char_int(char *str, t_fdf *l)
 	int		j;
 
 	new = ft_get_open(str, l);
-
 	tmp = ft_split_triple((char const **)new, ' ');
+	if (!tmp)
+		ft_exit("Map creation error ", l);
 	ft_db_malloc(tmp, l);
 	ft_tmp_map(tmp, l);
 	i = 0;
@@ -73,7 +74,6 @@ static void	ft_char_int(char *str, t_fdf *l)
 	while (i < l->h)
 		free(new[i++]);
 	free(new);
-	exit(EXIT_SUCCESS);
 }
 
 int	main(int argc, char **argv)
@@ -89,7 +89,8 @@ int	main(int argc, char **argv)
 	ft_char_int(argv[1], fdf);
 	ft_init(fdf);
 	fdf->mlx = mlx_init();
-	fdf->win = mlx_new_window(fdf->mlx, fdf->win_width, fdf->win_height, "FDF");
+	fdf->win = mlx_new_window(fdf->mlx, fdf->win_width,
+			fdf->win_height, "--FDF--");
 	ft_put_image(fdf);
 	mlx_hook(fdf->win, KeyPress, KeyPressMask, key_hook, fdf);
 	mlx_hook(fdf->win, 17, 0L, close_prog, fdf);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_split_triple.c                                  :+:      :+:    :+:   */
+/*   fdf_split_triple.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/02 11:58:01 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/15 11:01:13 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:31:47 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,10 +72,10 @@ int	ft_split_new(int l, char ***tab, char const **s, char c)
 	size_t	i;
 
 	if (!s[l])
-		exit(EXIT_FAILURE);
+		return (0);
 	tab[l] = malloc(sizeof(char *) * (ft_words(s[l], c) + 1));
 	if (!tab)
-		exit(EXIT_FAILURE);
+		return (0);
 	i = ft_position(0, s[l], c);
 	k = 0;
 	while (k < ft_words(s[l], c))

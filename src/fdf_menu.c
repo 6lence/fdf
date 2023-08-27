@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_menu.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/24 23:25:13 by miguel            #+#    #+#             */
-/*   Updated: 2023/08/25 00:00:15 by miguel           ###   ########.fr       */
+/*   Updated: 2023/08/26 20:08:15 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,15 @@ void	draw_controls(t_fdf *map)
 	line = CONTROL_BOX;
 	print_str(map, MENU_TAB, line, "CONTROLS");
 	line += LINE_SIZE;
-	print_str(map, MENU_TAB, line, "Up/Down : Zoom in/out");
+	print_str(map, MENU_TAB, line, "Arrow Up/Down : Zoom in/out");
 	line += LINE_SIZE;
-	print_str(map, MENU_TAB, line, "WASD : Translate");
+	print_str(map, MENU_TAB, line, "WASD : Movement");
 	line += LINE_SIZE;
 	print_str(map, MENU_TAB, line, "Q-E : Rotate");
 	line += LINE_SIZE;
 	print_str(map, MENU_TAB, line, "R-F : Change Angle");
 	line += LINE_SIZE;
-	print_str(map, MENU_TAB, line, "G-T : Change Altitude");
+	print_str(map, MENU_TAB, line, "N-M : Change Altitude");
 	line += LINE_SIZE;
 	print_str(map, MENU_TAB, line, "X : Reset All");
 	line += LINE_SIZE;

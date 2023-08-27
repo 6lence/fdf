@@ -6,7 +6,7 @@
 /*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/08/19 00:01:26 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/26 09:22:18 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/26 20:36:37 by mescobar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,15 @@ void	ft_reset(t_fdf *l)
 	ft_refresh(l);
 }
 
+static void	ft_free_struct(t_fdf *l)
+{
+	free(l->mlx);
+	free(l->img);
+	free(l->cam);
+	free(l->ctrl);
+	free(l);
+}
+
 void	ft_free_all(t_fdf *l)
 {
 	int	i;
@@ -42,9 +51,10 @@ void	ft_free_all(t_fdf *l)
 		while (i < l->h)
 		{
 			free(l->map[i]);
-			free(l->color[i]);
-			i++;
+			free(l->color[i++]);
 		}
+		free(l->map);
+		free(l->color);
 	}
 	if (l->img->img_ptr)
 		mlx_destroy_image(l->mlx, l->img->img_ptr);
@@ -53,5 +63,5 @@ void	ft_free_all(t_fdf *l)
 		mlx_destroy_window(l->mlx, l->win);
 		mlx_destroy_display(l->mlx);
 	}
-	free(l->mlx);
+	ft_free_struct(l);
 }
