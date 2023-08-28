@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/15 14:14:12 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/26 20:30:27 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:41:40 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,11 @@ int	ft_get_color(t_fdf *l, int y, int x)
 	else
 		color = mlx_get_color_value(l->mlx, l->color[y][x]);
 	return (color);
+}
+
+int	ft_abs(int a)
+{
+	if (a < 0)
+		return ((a * -1));
+	return (a);
 }

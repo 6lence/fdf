@@ -53,7 +53,7 @@ FILES_O_BONUS = ${FILES_C_BONUS:.c=.o}
 
 FILES_H = ${HEADER}libft.h
 
-FLAGS = -Wall -Wextra -Werror
+FLAGS = -Wall -Wextra -Werror -g
 
 NAME = libft.a
 

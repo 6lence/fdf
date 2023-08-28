@@ -3,20 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   fdf1.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mescobar <mescobar42@student.42perpigna    +#+  +:+       +#+        */
+/*   By: miguel <miguel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/06/14 15:02:22 by mescobar          #+#    #+#             */
-/*   Updated: 2023/08/26 20:58:54 by mescobar         ###   ########.fr       */
+/*   Updated: 2023/08/28 11:41:29 by miguel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../ft_fdf.h"
 
-int	ft_abs(int a)
+static char	*ft_strjoin2(char *s1, char *s2)
 {
-	if (a < 0)
-		return ((a * -1));
-	return (a);
+	char	*res;
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	if (!s1 && !s2)
+		return (NULL);
+	if (!s1)
+		return (ft_strdup(s2));
+	if (!s2)
+		return (ft_strdup(s1));
+	res = malloc(ft_strlen(s1) + ft_strlen(s2) + 1);
+	if (!res)
+		return (NULL);
+	j = 0;
+	while (s1[i])
+		res[i++] = s1[j++];
+	j = 0;
+	while (s2[j])
+		res[i++] = s2[j++];
+	return (res[i] = 0, free(s1), res);
 }
 
 static char	**ft_get_open(char *map, t_fdf *fdf)
@@ -38,7 +56,7 @@ static char	**ft_get_open(char *map, t_fdf *fdf)
 	{
 		r = read(fdf->file, buffer, 1024);
 		buffer[r] = '\0';
-		line = ft_strjoin(line, buffer);
+		line = ft_strjoin2(line, buffer);
 	}
 	antaunio = ft_split(line, '\n');
 	free(buffer);
